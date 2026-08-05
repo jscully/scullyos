@@ -2,7 +2,7 @@
   "system_name": "ScullyOS",
   "version": "1.0.0",
   "author": "Joseph Scully (jscully)",
-  "repository": "https://github.com/jscully/omakub.git",
+  "repository": "https://github.com/jscully/scullyos.git",
   "upstream_repository": "https://github.com/basecamp/omakub.git",
   "install_root": "~/.local/share/scullyos",
   "cli_command": "scullyos",

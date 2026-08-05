@@ -1,28 +1,28 @@
 # ⚡ ScullyOS
 
-**ScullyOS** is a custom, trimmed-down Linux workstation configuration engineered for high-performance software engineering, containerized web development, and terminal productivity.
+**ScullyOS** is a custom, trimmed-down Linux workstation environment engineered for modern software development, containerization, and high-performance terminal productivity.
 
-Formed from Basecamp's Omakub, **ScullyOS** removes unwanted bloat and focuses on a streamlined stack: Brave Browser, VS Code, Alacritty, Obsidian, Steam Link, Docker, LazyGit, LazyDocker, Zellij, and Mise.
+Built upon Basecamp's Omakub, **ScullyOS** strips out unnecessary bloat and focuses on a streamlined personal stack: Brave Browser, VS Code, Alacritty, Obsidian, Steam Link, Docker, LazyGit, LazyDocker, Zellij, and Mise.
 
 ---
 
 ## 🚀 One-Line Installation
 
-For fresh Ubuntu 24.04+ installations, run:
+For fresh Ubuntu 24.04+ installations, install ScullyOS with a single command:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/jscully/omakub/master/boot.sh | bash
+wget -qO- https://raw.githubusercontent.com/jscully/scullyos/master/boot.sh | bash
 ```
 
 ---
 
-## 🛠️ Included Stack & Applications
+## 🛠️ Installed Applications & Stack
 
 ### 🖥️ Desktop Applications
 - **Brave Browser**: Fast, privacy-centric browser (replaces Chrome).
-- **VS Code**: Modern code editor with extension ecosystem.
+- **Visual Studio Code**: Modern code editor with developer extension suite.
 - **Alacritty**: High-performance, GPU-accelerated terminal emulator.
-- **Obsidian**: Markdown-based local knowledge graph.
+- **Obsidian**: Markdown-based local knowledge graph and note-taking.
 - **Steam Link**: Low-latency remote gaming streaming from your host PC.
 - **Ulauncher**: Fast application launcher (`Super + Space`).
 - **Flameshot**: Instant interactive screenshot tool with drawing annotations.
@@ -30,7 +30,7 @@ wget -qO- https://raw.githubusercontent.com/jscully/omakub/master/boot.sh | bash
 - **GNOME Tweaks**: Custom desktop appearance and window configuration.
 
 ### 🛠️ Terminal Tools & TUIs
-- **Docker & Compose v2**: Industry-standard container runtime.
+- **Docker & Compose v2**: Container runtime & microservice orchestrator.
 - **LazyDocker**: Terminal UI for managing containers, images, and live logs.
 - **LazyGit**: Terminal UI for git staging, commits, and interactive rebases.
 - **Zellij**: Modern workspace multiplexer (tabs, split panes, saved sessions).
@@ -41,29 +41,36 @@ wget -qO- https://raw.githubusercontent.com/jscully/omakub/master/boot.sh | bash
 
 ---
 
-## 🖥️ Interactive HTML Dashboard & AI Agent Manifest
+## 🌐 Interactive Command Center & Hotkey Master Reference
 
-ScullyOS includes a built-in offline **Command Center Dashboard** accessible anytime by running:
+ScullyOS includes an offline, single-page **Interactive Command Center Dashboard** with instant search, interactive hotkey modals for every tool, and a global Master Cheat Sheet.
+
+Open it anytime from your terminal:
 
 ```bash
 scullyos dashboard
 ```
 
-Or opening [`dashboard/index.html`](file:///home/joe-s-imac/Documents/workspaces/omakub/dashboard/index.html) in your browser.
+Or view [`dashboard/index.html`](file:///home/joe-s-imac/Documents/workspaces/omakub/dashboard/index.html) directly in your browser.
 
 > [!NOTE]
 > **AI LLM Agent Compatibility**:
-> ScullyOS includes [`SYSTEM_MANIFEST.json`](file:///home/joe-s-imac/Documents/workspaces/omakub/SYSTEM_MANIFEST.json) at the root of the repository. Future AI coding assistants (like Antigravity or ChatGPT) can parse this file to instantly understand your environment layout, hotkeys, runtimes, and tools.
+> ScullyOS includes [`SYSTEM_MANIFEST.json`](file:///home/joe-s-imac/Documents/workspaces/omakub/SYSTEM_MANIFEST.json) at the root of the repository. AI coding assistants (like Antigravity or ChatGPT) can parse this file to instantly understand your environment layout, hotkeys, runtimes, and tools.
 
 ---
 
-## ⌨️ Global Keyboard Shortcuts
+## ⌨️ Master Keyboard Shortcuts
 
-| Hotkey | Action |
-| :--- | :--- |
-| `Super + Enter` | Open Alacritty Terminal |
-| `Super + Space` | Open Ulauncher Spotlight |
-| `Super + Arrow Keys` | Snap windows to half / quadrant screen tiling |
+| Hotkey | Action | Context |
+| :--- | :--- | :--- |
+| `Super + Enter` | Open Alacritty Terminal | Global Shortcut |
+| `Super + Space` | Open Ulauncher Spotlight | Global Shortcut |
+| `Super + W` | Close Active Window | Window Management |
+| `Super + Up` | Maximize Window | Window Management |
+| `Super + Arrow Keys` | Snap Window to Screen Quadrants / Halves | Tiling Navigation |
+| `Super + 1..6` | Switch Workspaces (1 to 6) | Workspace Navigation |
+| `Shift + Alt + 1` | Open New Brave Browser Window | Browser |
+| `Ctrl + Print` | Screen Capture with Flameshot Annotations | Screenshot Utility |
 
 ---
 

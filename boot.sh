@@ -13,7 +13,7 @@ sudo apt-get install -y git >/dev/null
 echo "Cloning ScullyOS..."
 INSTALL_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
 rm -rf "$INSTALL_PATH"
-git clone https://github.com/jscully/omakub.git "$INSTALL_PATH" >/dev/null
+git clone https://github.com/jscully/scullyos.git "$INSTALL_PATH" >/dev/null
 
 if [[ -n "$SCULLYOS_REF" ]]; then
 	cd "$INSTALL_PATH"
