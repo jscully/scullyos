@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ScullyOS — Command Center & System Reference</title>
+  <title>ScullyOS — Command Center & Hotkey Master Reference</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--border-color);
-      padding: 20px 40px;
+      padding: 16px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -87,7 +87,7 @@
 
     .search-box {
       position: relative;
-      width: 380px;
+      width: 420px;
     }
 
     .search-box input {
@@ -119,15 +119,15 @@
     .container {
       max-width: 1300px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
 
     .hero-card {
       background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 32px;
-      margin-bottom: 40px;
+      padding: 28px;
+      margin-bottom: 30px;
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 30px;
@@ -135,15 +135,15 @@
     }
 
     .hero-text h1 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .hero-text p {
       color: var(--text-muted);
-      font-size: 16px;
-      margin-bottom: 20px;
+      font-size: 15px;
+      margin-bottom: 16px;
     }
 
     .stat-badge {
@@ -152,48 +152,51 @@
       gap: 8px;
       background: rgba(139, 92, 246, 0.15);
       border: 1px solid rgba(139, 92, 246, 0.3);
-      padding: 6px 14px;
+      padding: 4px 12px;
       border-radius: 20px;
       color: #c084fc;
       font-weight: 600;
       font-size: 13px;
+      margin-bottom: 10px;
     }
 
     .ai-manifest-box {
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(6, 182, 212, 0.3);
       border-radius: 14px;
-      padding: 20px;
+      padding: 18px;
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .ai-manifest-title {
       color: var(--accent-cyan);
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .tabs {
       display: flex;
-      gap: 12px;
-      margin-bottom: 30px;
+      gap: 10px;
+      margin-bottom: 24px;
       border-bottom: 1px solid var(--border-color);
-      padding-bottom: 12px;
+      padding-bottom: 10px;
+      overflow-x: auto;
     }
 
     .tab-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 10px 20px;
-      font-size: 15px;
+      padding: 10px 18px;
+      font-size: 14px;
       font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
+      white-space: nowrap;
       transition: all 0.2s ease;
     }
 
@@ -211,52 +214,54 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
 
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 16px;
-      padding: 24px;
-      transition: all 0.25 ease;
+      padding: 22px;
+      transition: all 0.25s ease;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(139, 92, 246, 0.4);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     }
 
     .card-header {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 14px;
+      gap: 14px;
+      margin-bottom: 12px;
     }
 
     .card-icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
+      border-radius: 10px;
       display: grid;
       place-items: center;
-      font-size: 24px;
+      font-size: 22px;
       flex-shrink: 0;
     }
 
     .card-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: #fff;
     }
 
     .card-category {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--accent-cyan);
       font-weight: 600;
       text-transform: uppercase;
@@ -265,8 +270,8 @@
 
     .card-desc {
       color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 20px;
+      font-size: 13.5px;
+      margin-bottom: 16px;
       flex-grow: 1;
     }
 
@@ -274,29 +279,23 @@
       background: #090d16;
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 8px;
-      padding: 10px 14px;
+      padding: 8px 12px;
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 12.5px;
       color: #a7f3d0;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .copy-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 12px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-
-    .copy-btn:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.1);
+    .click-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: #a855f7;
+      font-weight: 600;
+      margin-top: 8px;
     }
 
     .hotkey-tag {
@@ -305,9 +304,176 @@
       padding: 3px 8px;
       border-radius: 6px;
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
       border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* MASTER CHEAT SHEET STYLES */
+    .cheatsheet-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .cheatsheet-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .cheatsheet-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .cheatsheet-table th, .cheatsheet-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cheatsheet-table th {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    .cheatsheet-table tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 20px;
+      width: 90%;
+      max-width: 680px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 30px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .modal-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--primary-gradient);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .modal-subtitle {
+      font-size: 13px;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .modal-section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin: 20px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hotkey-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hotkey-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13.5px;
+    }
+
+    .hotkey-desc {
+      color: #cbd5e1;
     }
 
     .hidden {
@@ -318,7 +484,7 @@
       text-align: center;
       color: var(--text-muted);
       font-size: 13px;
-      margin-top: 60px;
+      margin-top: 50px;
     }
   </style>
 </head>
@@ -334,7 +500,7 @@
     </div>
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search apps, hotkeys, CLI tools, docker...">
+      <input type="text" id="searchInput" placeholder="Search apps, hotkeys (e.g. Super+Space, Zellij, LazyGit)...">
     </div>
   </header>
 
@@ -342,11 +508,11 @@
     
     <div class="hero-card">
       <div class="hero-text">
-        <span class="stat-badge">⚡ Trimmed & Custom Engineered</span>
+        <span class="stat-badge">⚡ Interactive Hotkey Master Reference</span>
         <h1>Welcome to ScullyOS</h1>
-        <p>Your personalized, high-performance Linux environment for modern web development, containerization, and terminal productivity.</p>
+        <p>No more memorizing random shortcut names! Click on any tool below to view its complete hotkey reference guide.</p>
         <div>
-          <span class="hotkey-tag">Super + Enter ➔ Alacritty</span> &nbsp;
+          <span class="hotkey-tag">Super + Enter ➔ Terminal</span> &nbsp;
           <span class="hotkey-tag">Super + Space ➔ Ulauncher</span> &nbsp;
           <span class="hotkey-tag">Terminal ➔ scullyos</span>
         </div>
@@ -364,16 +530,111 @@
 
     <div class="tabs">
       <button class="tab-btn active" onclick="filterTab('all', this)">All Tools</button>
+      <button class="tab-btn" onclick="filterTab('cheatsheet', this)">🔥 Master Hotkeys Cheat Sheet</button>
       <button class="tab-btn" onclick="filterTab('desktop', this)">Desktop Apps</button>
       <button class="tab-btn" onclick="filterTab('terminal', this)">Terminal & TUIs</button>
-      <button class="tab-btn" onclick="filterTab('hotkeys', this)">GNOME Hotkeys</button>
       <button class="tab-btn" onclick="filterTab('dev', this)">Runtimes & Docker</button>
     </div>
 
+    <!-- MASTER CHEAT SHEET TAB VIEW (Hidden by default, active on tab click) -->
+    <div id="masterCheatSheetView" class="hidden">
+      
+      <div class="cheatsheet-section">
+        <div class="cheatsheet-title">🖥️ Desktop & Window Management Shortcuts</div>
+        <table class="cheatsheet-table">
+          <thead>
+            <tr>
+              <th>Shortcut Key</th>
+              <th>Action</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="hotkey-tag">Super + Enter</span></td><td>Launch Alacritty Terminal Window</td><td>Application Launcher</td></tr>
+            <tr><td><span class="hotkey-tag">Super + Space</span></td><td>Open Ulauncher Search / Calculator</td><td>Application Launcher</td></tr>
+            <tr><td><span class="hotkey-tag">Super + W</span></td><td>Close Active Window</td><td>Window Management</td></tr>
+            <tr><td><span class="hotkey-tag">Super + Up</span></td><td>Maximize Window</td><td>Window Management</td></tr>
+            <tr><td><span class="hotkey-tag">Super + Arrow Keys</span></td><td>Tiling Window Snapping (Left/Right/Halves)</td><td>Window Management</td></tr>
+            <tr><td><span class="hotkey-tag">Super + 1..6</span></td><td>Switch Workspaces (1 to 6)</td><td>Workspace Navigation</td></tr>
+            <tr><td><span class="hotkey-tag">Alt + 1..9</span></td><td>Launch or Switch to Dock Pinned App</td><td>Dock Shortcuts</td></tr>
+            <tr><td><span class="hotkey-tag">Ctrl + Print</span></td><td>Take Screen Capture with Flameshot Annotations</td><td>Screenshot Utility</td></tr>
+            <tr><td><span class="hotkey-tag">Shift + Alt + 1</span></td><td>Open New Brave Browser Window</td><td>Browser</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cheatsheet-section">
+        <div class="cheatsheet-title">🪟 Zellij Terminal Multiplexer Hotkeys</div>
+        <table class="cheatsheet-table">
+          <thead>
+            <tr>
+              <th>Shortcut Key</th>
+              <th>Action</th>
+              <th>Sub-Menu Mode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="hotkey-tag">Ctrl + p</span></td><td>Open Pane Management Mode</td><td>Pane Control</td></tr>
+            <tr><td><span class="hotkey-tag">Ctrl + p ➔ n</span></td><td>Open New Pane Split</td><td>Pane Control</td></tr>
+            <tr><td><span class="hotkey-tag">Ctrl + p ➔ x</span></td><td>Close Current Pane</td><td>Pane Control</td></tr>
+            <tr><td><span class="hotkey-tag">Ctrl + t</span></td><td>Open Tab Management Mode</td><td>Tab Control</td></tr>
+            <tr><td><span class="hotkey-tag">Ctrl + t ➔ n</span></td><td>Open New Tab</td><td>Tab Control</td></tr>
+            <tr><td><span class="hotkey-tag">Alt + Left / Right</span></td><td>Switch Between Split Panes</td><td>Navigation</td></tr>
+            <tr><td><span class="hotkey-tag">Ctrl + o</span></td><td>Session Lock / Unlock UI Overlay</td><td>Session Control</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cheatsheet-section">
+        <div class="cheatsheet-title">🌿 LazyGit TUI Hotkeys</div>
+        <table class="cheatsheet-table">
+          <thead>
+            <tr>
+              <th>Shortcut Key</th>
+              <th>Action</th>
+              <th>Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="hotkey-tag">Space</span></td><td>Stage / Unstage Highlighted File</td><td>File Panel</td></tr>
+            <tr><td><span class="hotkey-tag">c</span></td><td>Commit Staged Changes</td><td>File Panel</td></tr>
+            <tr><td><span class="hotkey-tag">p</span></td><td>Push Commits to Remote (git push)</td><td>Global</td></tr>
+            <tr><td><span class="hotkey-tag">P</span></td><td>Pull Commits from Remote (git pull)</td><td>Global</td></tr>
+            <tr><td><span class="hotkey-tag">z</span></td><td>Stash Changes</td><td>File Panel</td></tr>
+            <tr><td><span class="hotkey-tag">A</span></td><td>Amend Last Commit</td><td>File Panel</td></tr>
+            <tr><td><span class="hotkey-tag">e</span></td><td>Edit Highlighted File in Editor</td><td>File Panel</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cheatsheet-section">
+        <div class="cheatsheet-title">📊 LazyDocker TUI Hotkeys</div>
+        <table class="cheatsheet-table">
+          <thead>
+            <tr>
+              <th>Shortcut Key</th>
+              <th>Action</th>
+              <th>Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="hotkey-tag">Space</span></td><td>Pause / Unpause Container</td><td>Containers Panel</td></tr>
+            <tr><td><span class="hotkey-tag">e</span></td><td>Exec Shell Terminal inside Selected Container</td><td>Containers Panel</td></tr>
+            <tr><td><span class="hotkey-tag">r</span></td><td>Restart Selected Container</td><td>Containers Panel</td></tr>
+            <tr><td><span class="hotkey-tag">d</span></td><td>Remove Selected Container</td><td>Containers Panel</td></tr>
+            <tr><td><span class="hotkey-tag">m</span></td><td>View Live Container Logs Fullscreen</td><td>Containers Panel</td></tr>
+            <tr><td><span class="hotkey-tag">b</span></td><td>Open Bulk Operations Menu</td><td>Global</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- MAIN TOOLS GRID -->
     <div class="grid" id="toolsGrid">
 
       <!-- DESKTOP APPS -->
-      <div class="card" data-category="desktop" data-keywords="brave browser web internet chromebookmark">
+      <div class="card" data-category="desktop" data-keywords="brave browser web internet shift alt 1 hotkey" onclick="openModal('brave')">
         <div>
           <div class="card-header">
             <div class="card-icon">🦁</div>
@@ -382,15 +643,18 @@
               <div class="card-title">Brave Browser</div>
             </div>
           </div>
-          <div class="card-desc">Privacy-focused, fast Chromium web browser with built-in ad and tracker blocking.</div>
+          <div class="card-desc">Privacy-focused Chromium web browser with built-in ad blocking.</div>
         </div>
-        <div class="code-block">
-          <code>brave-browser</code>
-          <button class="copy-btn" onclick="copyText('brave-browser')">Copy</button>
+        <div>
+          <div class="code-block">
+            <code>Shift + Alt + 1</code>
+            <span class="hotkey-tag">New Window</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="desktop" data-keywords="vs code visual studio editor IDE code python javascript html">
+      <div class="card" data-category="desktop" data-keywords="vs code visual studio editor IDE code python javascript html" onclick="openModal('vscode')">
         <div>
           <div class="card-header">
             <div class="card-icon">🟦</div>
@@ -401,13 +665,16 @@
           </div>
           <div class="card-desc">Extensible code editor pre-loaded with developer plugins and themes.</div>
         </div>
-        <div class="code-block">
-          <code>code .</code>
-          <button class="copy-btn" onclick="copyText('code .')">Copy</button>
+        <div>
+          <div class="code-block">
+            <code>code .</code>
+            <span class="hotkey-tag">CLI</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="desktop" data-keywords="alacritty terminal GPU prompt shell bash zsh">
+      <div class="card" data-category="desktop" data-keywords="alacritty terminal GPU prompt shell bash zsh super enter" onclick="openModal('alacritty')">
         <div>
           <div class="card-header">
             <div class="card-icon">⚡</div>
@@ -418,13 +685,16 @@
           </div>
           <div class="card-desc">Ultra-fast GPU-accelerated terminal emulator tuned with Tokyo Night colors.</div>
         </div>
-        <div class="code-block">
-          <code>Super + Enter</code>
-          <span class="hotkey-tag">Hotkey</span>
+        <div>
+          <div class="code-block">
+            <code>Super + Enter</code>
+            <span class="hotkey-tag">Launch</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="desktop" data-keywords="obsidian notes markdown wiki knowledge base pkm">
+      <div class="card" data-category="desktop" data-keywords="obsidian notes markdown wiki knowledge base pkm" onclick="openModal('obsidian')">
         <div>
           <div class="card-header">
             <div class="card-icon">💎</div>
@@ -435,13 +705,16 @@
           </div>
           <div class="card-desc">Local Markdown knowledge graph and personal documentation store.</div>
         </div>
-        <div class="code-block">
-          <code>obsidian</code>
-          <button class="copy-btn" onclick="copyText('obsidian')">Copy</button>
+        <div>
+          <div class="code-block">
+            <code>obsidian</code>
+            <span class="hotkey-tag">CLI</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="desktop" data-keywords="ulauncher launcher search spotlight runner app">
+      <div class="card" data-category="desktop" data-keywords="ulauncher launcher search spotlight runner app super space" onclick="openModal('ulauncher')">
         <div>
           <div class="card-header">
             <div class="card-icon">🚀</div>
@@ -452,13 +725,16 @@
           </div>
           <div class="card-desc">Lightning-fast application and quick-calculator launcher popup.</div>
         </div>
-        <div class="code-block">
-          <code>Super + Space</code>
-          <span class="hotkey-tag">Hotkey</span>
+        <div>
+          <div class="code-block">
+            <code>Super + Space</code>
+            <span class="hotkey-tag">Hotkey</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="desktop" data-keywords="steam link gaming remote streaming valvelink">
+      <div class="card" data-category="desktop" data-keywords="steam link gaming remote streaming valvelink" onclick="openModal('steamlink')">
         <div>
           <div class="card-header">
             <div class="card-icon">🎮</div>
@@ -469,48 +745,16 @@
           </div>
           <div class="card-desc">Stream games and desktop sessions directly from your gaming host PC.</div>
         </div>
-        <div class="code-block">
-          <code>flatpak run com.valvesoftware.SteamLink</code>
-          <button class="copy-btn" onclick="copyText('flatpak run com.valvesoftware.SteamLink')">Copy</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="desktop" data-keywords="flameshot screenshot capture drawing annotate">
         <div>
-          <div class="card-header">
-            <div class="card-icon">📸</div>
-            <div>
-              <div class="card-category">Screenshot Utility</div>
-              <div class="card-title">Flameshot</div>
-            </div>
+          <div class="code-block">
+            <code>flatpak run com.valvesoftware.SteamLink</code>
           </div>
-          <div class="card-desc">Interactive screenshot capture tool with instant arrows, text, and blur drawing.</div>
-        </div>
-        <div class="code-block">
-          <code>flameshot gui</code>
-          <button class="copy-btn" onclick="copyText('flameshot gui')">Copy</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="desktop" data-keywords="libreoffice office word excel calc writer presentation">
-        <div>
-          <div class="card-header">
-            <div class="card-icon">📄</div>
-            <div>
-              <div class="card-category">Office Suite</div>
-              <div class="card-title">LibreOffice</div>
-            </div>
-          </div>
-          <div class="card-desc">Open-source document, spreadsheet, and presentation suite.</div>
-        </div>
-        <div class="code-block">
-          <code>libreoffice</code>
-          <button class="copy-btn" onclick="copyText('libreoffice')">Copy</button>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
       <!-- TERMINAL & TUIs -->
-      <div class="card" data-category="terminal" data-keywords="lazygit git repository commits diff branching TUI">
+      <div class="card" data-category="terminal" data-keywords="lazygit git repository commits diff branching TUI space c p" onclick="openModal('lazygit')">
         <div>
           <div class="card-header">
             <div class="card-icon">🌿</div>
@@ -521,13 +765,16 @@
           </div>
           <div class="card-desc">Visual terminal interface for stage/unstage, interactive rebasing, and git logs.</div>
         </div>
-        <div class="code-block">
-          <code>lazygit</code>
-          <button class="copy-btn" onclick="copyText('lazygit')">Copy</button>
+        <div>
+          <div class="code-block">
+            <code>lazygit</code>
+            <span class="hotkey-tag">TUI</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="terminal" data-keywords="lazydocker docker containers images logs stats TUI">
+      <div class="card" data-category="terminal" data-keywords="lazydocker docker containers images logs stats TUI e r d" onclick="openModal('lazydocker')">
         <div>
           <div class="card-header">
             <div class="card-icon">📊</div>
@@ -538,13 +785,16 @@
           </div>
           <div class="card-desc">Terminal UI for live container health, restart actions, and resource monitoring.</div>
         </div>
-        <div class="code-block">
-          <code>lazydocker</code>
-          <button class="copy-btn" onclick="copyText('lazydocker')">Copy</button>
+        <div>
+          <div class="code-block">
+            <code>lazydocker</code>
+            <span class="hotkey-tag">TUI</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="terminal" data-keywords="zellij tmux multiplexer tabs split panes workspace session">
+      <div class="card" data-category="terminal" data-keywords="zellij tmux multiplexer tabs split panes workspace session ctrl p ctrl t" onclick="openModal('zellij')">
         <div>
           <div class="card-header">
             <div class="card-icon">🪟</div>
@@ -555,13 +805,16 @@
           </div>
           <div class="card-desc">Modern terminal workspace multiplexer with split panes, layouts, and web tabs.</div>
         </div>
-        <div class="code-block">
-          <code>zellij</code>
-          <button class="copy-btn" onclick="copyText('zellij')">Copy</button>
+        <div>
+          <div class="code-block">
+            <code>zellij</code>
+            <span class="hotkey-tag">Multiplexer</span>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="terminal" data-keywords="btop htop monitor cpu memory disk process top">
+      <div class="card" data-category="terminal" data-keywords="btop htop monitor cpu memory disk process top" onclick="openModal('btop')">
         <div>
           <div class="card-header">
             <div class="card-icon">📈</div>
@@ -572,31 +825,17 @@
           </div>
           <div class="card-desc">Beautiful interactive terminal monitor showing real-time CPU, RAM, disk & process graph.</div>
         </div>
-        <div class="code-block">
-          <code>btop</code>
-          <button class="copy-btn" onclick="copyText('btop')">Copy</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="terminal" data-keywords="fastfetch neofetch system specs hardware info">
         <div>
-          <div class="card-header">
-            <div class="card-icon">🚀</div>
-            <div>
-              <div class="card-category">System Specs</div>
-              <div class="card-title">Fastfetch</div>
-            </div>
+          <div class="code-block">
+            <code>btop</code>
+            <span class="hotkey-tag">Monitor</span>
           </div>
-          <div class="card-desc">Lightning-fast system specs overview with distro logo and hardware details.</div>
-        </div>
-        <div class="code-block">
-          <code>fastfetch</code>
-          <button class="copy-btn" onclick="copyText('fastfetch')">Copy</button>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
       <!-- RUNTIMES & DOCKER -->
-      <div class="card" data-category="dev" data-keywords="mise version manager node python go rust ruby nvm">
+      <div class="card" data-category="dev" data-keywords="mise version manager node python go rust ruby nvm" onclick="openModal('mise')">
         <div>
           <div class="card-header">
             <div class="card-icon">⚡</div>
@@ -607,13 +846,15 @@
           </div>
           <div class="card-desc">Blazing-fast polyglot runtime manager for Node.js, Python, Go, Rust, and Ruby.</div>
         </div>
-        <div class="code-block">
-          <code>mise use --global node@lts</code>
-          <button class="copy-btn" onclick="copyText('mise use --global node@lts')">Copy</button>
+        <div>
+          <div class="code-block">
+            <code>mise use --global node@lts</code>
+          </div>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
-      <div class="card" data-category="dev" data-keywords="docker engine compose containers daemon virtual">
+      <div class="card" data-category="dev" data-keywords="docker engine compose containers daemon virtual" onclick="openModal('docker')">
         <div>
           <div class="card-header">
             <div class="card-icon">🐳</div>
@@ -624,108 +865,298 @@
           </div>
           <div class="card-desc">Industry-standard container engine with Compose v2 included.</div>
         </div>
-        <div class="code-block">
-          <code>docker ps</code>
-          <button class="copy-btn" onclick="copyText('docker ps')">Copy</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="dev" data-keywords="postgres postgresql database container docker">
         <div>
-          <div class="card-header">
-            <div class="card-icon">🐘</div>
-            <div>
-              <div class="card-category">Database Container</div>
-              <div class="card-title">PostgreSQL 16 (Docker)</div>
-            </div>
+          <div class="code-block">
+            <code>docker ps</code>
           </div>
-          <div class="card-desc">Quick-launch containerized PostgreSQL database bound to port 5432.</div>
-        </div>
-        <div class="code-block">
-          <code>docker run -d --name postgres16 -p 5432:5432 postgres:16</code>
-          <button class="copy-btn" onclick="copyText('docker run -d --name postgres16 -p 5432:5432 postgres:16')">Copy</button>
-        </div>
-      </div>
-
-      <!-- HOTKEYS -->
-      <div class="card" data-category="hotkeys" data-keywords="hotkey shortcut super enter terminal alacritty">
-        <div>
-          <div class="card-header">
-            <div class="card-icon">⌨️</div>
-            <div>
-              <div class="card-category">GNOME Shortcut</div>
-              <div class="card-title">Launch Terminal</div>
-            </div>
-          </div>
-          <div class="card-desc">Instantly spawn a new Alacritty terminal window anywhere.</div>
-        </div>
-        <div class="code-block">
-          <code>Super + Enter</code>
-          <span class="hotkey-tag">Hotkey</span>
-        </div>
-      </div>
-
-      <div class="card" data-category="hotkeys" data-keywords="hotkey shortcut super space ulauncher launcher search">
-        <div>
-          <div class="card-header">
-            <div class="card-icon">🔍</div>
-            <div>
-              <div class="card-category">GNOME Shortcut</div>
-              <div class="card-title">App Launcher / Search</div>
-            </div>
-          </div>
-          <div class="card-desc">Pop up Ulauncher search bar to launch apps or calculate formulas.</div>
-        </div>
-        <div class="code-block">
-          <code>Super + Space</code>
-          <span class="hotkey-tag">Hotkey</span>
-        </div>
-      </div>
-
-      <div class="card" data-category="hotkeys" data-keywords="hotkey shortcut tiling snap windows split navigation arrow">
-        <div>
-          <div class="card-header">
-            <div class="card-icon">📐</div>
-            <div>
-              <div class="card-category">Tiling Shortcut</div>
-              <div class="card-title">Window Snapping</div>
-            </div>
-          </div>
-          <div class="card-desc">Snap windows to left/right/top/bottom screen quadrants effortlessly.</div>
-        </div>
-        <div class="code-block">
-          <code>Super + Arrow Keys</code>
-          <span class="hotkey-tag">Hotkey</span>
+          <div class="click-hint">🔍 Click card for full hotkeys & commands</div>
         </div>
       </div>
 
     </div>
 
     <footer>
-      ScullyOS — Custom Designed & Trimmed Workstation Setup &bull; Built with Google Antigravity AI
+      ScullyOS — Custom Designed Workstation Setup &bull; Built with Google Antigravity AI
     </footer>
   </div>
 
+  <!-- INTERACTIVE MODAL DIALOG -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      <div class="modal-header">
+        <div class="modal-icon" id="modalIcon">⚡</div>
+        <div>
+          <div class="modal-title" id="modalTitle">Tool Title</div>
+          <div class="modal-subtitle" id="modalSubtitle">Category</div>
+        </div>
+      </div>
+      <p id="modalDesc" style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;"></p>
+      
+      <div class="modal-section-title">⌨️ Complete Hotkeys & Shortcuts Guide</div>
+      <div class="hotkey-list" id="modalHotkeys"></div>
+
+      <div class="modal-section-title">💻 Useful Commands & Examples</div>
+      <div class="hotkey-list" id="modalCommands"></div>
+    </div>
+  </div>
+
   <script>
+    const toolDetails = {
+      alacritty: {
+        title: "Alacritty Terminal",
+        category: "GPU Terminal Emulator",
+        icon: "⚡",
+        desc: "High-performance GPU-accelerated terminal emulator configured with Tokyo Night theme and JetBrains Mono typography.",
+        hotkeys: [
+          { key: "Super + Enter", desc: "Launch new Alacritty terminal window anywhere" },
+          { key: "Ctrl + Shift + C", desc: "Copy highlighted text to system clipboard" },
+          { key: "Ctrl + Shift + V", desc: "Paste system clipboard text" },
+          { key: "Ctrl + Plus / Minus", desc: "Increase / Decrease terminal font size" }
+        ],
+        commands: [
+          { key: "alacritty", desc: "Spawn terminal window" },
+          { key: "scullyos font-size", desc: "Adjust persistent ScullyOS terminal font size" }
+        ]
+      },
+      ulauncher: {
+        title: "Ulauncher Search",
+        category: "Application Launcher & Spotlight",
+        icon: "🚀",
+        desc: "Instant application launcher and smart spotlight search overlay for Linux.",
+        hotkeys: [
+          { key: "Super + Space", desc: "Toggle Ulauncher spotlight popup bar" },
+          { key: "Esc", desc: "Close Ulauncher popup" },
+          { key: "Up / Down Arrow", desc: "Navigate search results" }
+        ],
+        commands: [
+          { key: "ulauncher-toggle", desc: "Toggle launcher programmatically" }
+        ]
+      },
+      zellij: {
+        title: "Zellij Multiplexer",
+        category: "Terminal Workspace & Panes",
+        icon: "🪟",
+        desc: "Modern terminal session multiplexer with split workspace panes, tabs, and saved layouts.",
+        hotkeys: [
+          { key: "Ctrl + p", desc: "Enter Pane Management Mode" },
+          { key: "Ctrl + p ➔ n", desc: "Create New Pane Split" },
+          { key: "Ctrl + p ➔ x", desc: "Close Current Pane" },
+          { key: "Ctrl + t", desc: "Enter Tab Management Mode" },
+          { key: "Ctrl + t ➔ n", desc: "Create New Workspace Tab" },
+          { key: "Alt + Left / Right", desc: "Move focus between split panes" },
+          { key: "Ctrl + o", desc: "Session Lock / Unlock UI overlay bar" }
+        ],
+        commands: [
+          { key: "zellij", desc: "Start new Zellij multiplexer session" },
+          { key: "zellij attach", desc: "Reattach to existing session" }
+        ]
+      },
+      lazygit: {
+        title: "LazyGit TUI",
+        category: "Git Terminal UI",
+        icon: "🌿",
+        desc: "Intuitive terminal UI for git workflow, interactive rebase, branch navigation, and stashes.",
+        hotkeys: [
+          { key: "Space", desc: "Stage / Unstage highlighted file" },
+          { key: "c", desc: "Commit staged changes" },
+          { key: "p", desc: "Push commits to remote (git push)" },
+          { key: "P", desc: "Pull commits from remote (git pull)" },
+          { key: "z", desc: "Stash changes" },
+          { key: "A", desc: "Amend last commit" },
+          { key: "e", desc: "Edit file in VS Code or default editor" },
+          { key: "/", desc: "Filter / Search commit log or files" }
+        ],
+        commands: [
+          { key: "lazygit", desc: "Launch LazyGit inside any git repo" }
+        ]
+      },
+      lazydocker: {
+        title: "LazyDocker TUI",
+        category: "Docker Container UI",
+        icon: "📊",
+        desc: "Terminal UI for real-time monitoring of Docker containers, images, volumes, and logs.",
+        hotkeys: [
+          { key: "Space", desc: "Pause / Unpause selected container" },
+          { key: "e", desc: "Exec bash terminal shell inside container" },
+          { key: "r", desc: "Restart selected container" },
+          { key: "d", desc: "Remove selected container" },
+          { key: "m", desc: "View full-screen live logs" },
+          { key: "b", desc: "Open Bulk Container Actions menu" }
+        ],
+        commands: [
+          { key: "lazydocker", desc: "Launch LazyDocker interface" }
+        ]
+      },
+      brave: {
+        title: "Brave Browser",
+        category: "Web Browser",
+        icon: "🦁",
+        desc: "Privacy-focused web browser with fast rendering engine and built-in ad/tracker blocking.",
+        hotkeys: [
+          { key: "Shift + Alt + 1", desc: "Open New Brave Browser Window" },
+          { key: "Ctrl + Shift + N", desc: "Open Private / Incognito Window" },
+          { key: "Ctrl + Shift + I", desc: "Open Developer Tools Inspector" }
+        ],
+        commands: [
+          { key: "brave-browser", desc: "Launch Brave Browser" }
+        ]
+      },
+      vscode: {
+        title: "Visual Studio Code",
+        category: "Code Editor & IDE",
+        icon: "🟦",
+        desc: "Industry-standard code editor configured with language extensions and Git integration.",
+        hotkeys: [
+          { key: "Ctrl + Shift + P", desc: "Open VS Code Command Palette" },
+          { key: "Ctrl + P", desc: "Quick File Search / Open File" },
+          { key: "Ctrl + `", desc: "Toggle Integrated Terminal" }
+        ],
+        commands: [
+          { key: "code .", desc: "Open current folder in VS Code" }
+        ]
+      },
+      obsidian: {
+        title: "Obsidian",
+        category: "Knowledge Base",
+        icon: "💎",
+        desc: "Local Markdown personal wiki and knowledge base for project notes.",
+        hotkeys: [
+          { key: "Ctrl + N", desc: "Create New Note" },
+          { key: "Ctrl + O", desc: "Open Note Quick Switcher" },
+          { key: "Ctrl + E", desc: "Toggle Reading / Editing Mode" }
+        ],
+        commands: [
+          { key: "obsidian", desc: "Launch Obsidian app" }
+        ]
+      },
+      steamlink: {
+        title: "Steam Link",
+        category: "Remote Gaming & Desktop",
+        icon: "🎮",
+        desc: "Stream games and low-latency desktop sessions directly from your primary gaming rig.",
+        hotkeys: [
+          { key: "Shift + Tab", desc: "Toggle Steam Overlay in game" }
+        ],
+        commands: [
+          { key: "flatpak run com.valvesoftware.SteamLink", desc: "Launch Steam Link" }
+        ]
+      },
+      mise: {
+        title: "Mise Polyglot Manager",
+        category: "Runtime Version Manager",
+        icon: "⚡",
+        desc: "Polyglot version manager replacing nvm, rbenv, pyenv, and asdf.",
+        hotkeys: [
+          { key: "mise ls", desc: "List all installed runtimes & versions" },
+          { key: "mise use --global node@lts", desc: "Set default global Node.js version" },
+          { key: "mise use --global python@latest", desc: "Set default global Python version" }
+        ],
+        commands: [
+          { key: "mise doctor", desc: "Check Mise installation status" }
+        ]
+      },
+      docker: {
+        title: "Docker Engine",
+        category: "Container Platform",
+        icon: "🐳",
+        desc: "Isolated containerization platform for backend microservices and databases.",
+        hotkeys: [
+          { key: "docker ps", desc: "List running containers" },
+          { key: "docker compose up -d", desc: "Start compose stack in background" }
+        ],
+        commands: [
+          { key: "docker run -d -p 5432:5432 postgres:16", desc: "Run PostgreSQL container" }
+        ]
+      },
+      btop: {
+        title: "Btop Resource Monitor",
+        category: "System Resource Monitor",
+        icon: "📈",
+        desc: "Interactive system monitor displaying CPU cores, memory utilization, disk IO, and process lists.",
+        hotkeys: [
+          { key: "q / Esc", desc: "Quit Btop" },
+          { key: "f", desc: "Filter processes by name" },
+          { key: "k", desc: "Kill selected process" }
+        ],
+        commands: [
+          { key: "btop", desc: "Launch Btop system monitor" }
+        ]
+      }
+    };
+
+    function openModal(toolKey) {
+      const tool = toolDetails[toolKey];
+      if (!tool) return;
+
+      document.getElementById('modalTitle').innerText = tool.title;
+      document.getElementById('modalSubtitle').innerText = tool.category;
+      document.getElementById('modalIcon').innerText = tool.icon;
+      document.getElementById('modalDesc').innerText = tool.desc;
+
+      const hotkeysContainer = document.getElementById('modalHotkeys');
+      hotkeysContainer.innerHTML = tool.hotkeys.map(h => `
+        <div class="hotkey-row">
+          <span class="hotkey-desc">${h.desc}</span>
+          <span class="hotkey-tag">${h.key}</span>
+        </div>
+      `).join('');
+
+      const commandsContainer = document.getElementById('modalCommands');
+      commandsContainer.innerHTML = tool.commands.map(c => `
+        <div class="hotkey-row">
+          <span class="hotkey-desc">${c.desc}</span>
+          <code style="color: #a7f3d0; font-family: var(--font-mono); font-size: 12.5px;">${c.key}</code>
+        </div>
+      `).join('');
+
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModal(event) {
+      if (event.target.id === 'modalOverlay') {
+        document.getElementById('modalOverlay').classList.remove('active');
+      }
+    }
+
+    function closeModalDirect() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+
     function filterTab(category, btnElement) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       btnElement.classList.add('active');
 
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
+      const masterView = document.getElementById('masterCheatSheetView');
+      const toolsGrid = document.getElementById('toolsGrid');
+
+      if (category === 'cheatsheet') {
+        masterView.classList.remove('hidden');
+        toolsGrid.classList.add('hidden');
+      } else {
+        masterView.classList.add('hidden');
+        toolsGrid.classList.remove('hidden');
+
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      }
     }
 
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', (e) => {
       const query = e.target.value.toLowerCase();
-      const cards = document.querySelectorAll('.card');
       
+      const masterView = document.getElementById('masterCheatSheetView');
+      const toolsGrid = document.getElementById('toolsGrid');
+
+      // If user typed a search query, show both grid and cheatsheet rows that match
+      const cards = document.querySelectorAll('.card');
       cards.forEach(card => {
         const text = (card.innerText + ' ' + (card.dataset.keywords || '')).toLowerCase();
         if (text.includes(query)) {
@@ -734,17 +1165,17 @@
           card.classList.add('hidden');
         }
       });
-    });
 
-    function copyText(text) {
-      navigator.clipboard.writeText(text);
-      const activeEl = document.activeElement;
-      if (activeEl) {
-        const originalText = activeEl.innerText;
-        activeEl.innerText = 'Copied!';
-        setTimeout(() => { activeEl.innerText = originalText; }, 1500);
-      }
-    }
+      // Filter rows in master cheat sheet
+      const cheatRows = document.querySelectorAll('.cheatsheet-table tbody tr');
+      cheatRows.forEach(row => {
+        if (row.innerText.toLowerCase().includes(query)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
   </script>
 </body>
 </html>
