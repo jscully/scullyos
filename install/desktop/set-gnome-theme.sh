@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source ~/.local/share/omakub/themes/tokyo-night/gnome.sh
-source ~/.local/share/omakub/themes/tokyo-night/tophat.sh
+SCULLYOS_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
+[ -f "$SCULLYOS_PATH/themes/aston-green/gnome.sh" ] && source "$SCULLYOS_PATH/themes/aston-green/gnome.sh"

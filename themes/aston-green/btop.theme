@@ -1,0 +1,81 @@
+# Btop theme: Aston Green (Quiet Luxury)
+# Main background, should be in hex format
+
+# Main background, leave empty for transparent
+theme[main_bg]="#101614"
+
+# Main text color
+theme[main_fg]="#e5e9e3"
+
+# Title text color
+theme[title]="#e5e9e3"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#008f5d"
+
+# Background color of selected item
+theme[selected_bg]="#1d3e31"
+
+# Foreground color of selected item
+theme[selected_fg]="#ffffff"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#4b5752"
+
+# Color of text in boxes
+theme[proc_misc]="#c5a059"
+
+# Cpu box outline color
+theme[cpu_box]="#1d3e31"
+
+# Memory box outline color
+theme[mem_box]="#1d3e31"
+
+# Net box outline color
+theme[net_box]="#1d3e31"
+
+# Processes box outline color
+theme[proc_box]="#1d3e31"
+
+# Box divider line and small symbols
+theme[div_line]="#24302a"
+
+# Temperature graph colors
+theme[temp_start]="#008f5d"
+theme[temp_mid]="#c5a059"
+theme[temp_end]="#c05646"
+
+# CPU graph colors
+theme[cpu_start]="#008f5d"
+theme[cpu_mid]="#10b981"
+theme[cpu_end]="#d4af37"
+
+# Mem/Disk free meter
+theme[free_start]="#008f5d"
+theme[free_mid]="#10b981"
+theme[free_end]="#36a390"
+
+# Mem/Disk cached meter
+theme[cached_start]="#3a7ca5"
+theme[cached_mid]="#4a90e2"
+theme[cached_end]="#8f6f9f"
+
+# Mem/Disk available meter
+theme[available_start]="#c5a059"
+theme[available_mid]="#d4af37"
+theme[available_end]="#e5e9e3"
+
+# Mem/Disk used meter
+theme[used_start]="#008f5d"
+theme[used_mid]="#c5a059"
+theme[used_end]="#c05646"
+
+# Download graph colors
+theme[download_start]="#008f5d"
+theme[download_mid]="#10b981"
+theme[download_end]="#36a390"
+
+# Upload graph colors
+theme[upload_start]="#3a7ca5"
+theme[upload_mid]="#4a90e2"
+theme[upload_end]="#8f6f9f"

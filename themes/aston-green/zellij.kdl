@@ -1,0 +1,15 @@
+themes {
+    aston-green {
+        fg "#e5e9e3"
+        bg "#101614"
+        black "#1b221f"
+        red "#c05646"
+        green "#008f5d"
+        yellow "#c5a059"
+        blue "#3a7ca5"
+        magenta "#8f6f9f"
+        cyan "#2e8b7b"
+        white "#d5dad3"
+        orange "#c5a059"
+    }
+}
