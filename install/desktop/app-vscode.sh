@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCULLYOS_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
+
 if [ ! -f /etc/apt/keyrings/packages.microsoft.gpg ] || [ ! -f /usr/share/keyrings/microsoft.gpg ]; then
   [ -f /etc/apt/keyrings/packages.microsoft.gpg ] && sudo rm /etc/apt/keyrings/packages.microsoft.gpg
   cd /tmp
@@ -14,7 +16,7 @@ sudo apt update
 sudo apt install -y code
 
 mkdir -p ~/.config/Code/User
-cp ~/.local/share/omakub/configs/vscode.json ~/.config/Code/User/settings.json
+[ -f "$SCULLYOS_PATH/configs/vscode.json" ] && cp "$SCULLYOS_PATH/configs/vscode.json" ~/.config/Code/User/settings.json
 
 # Install default supported themes
-code --install-extension enkia.tokyo-night
+code --install-extension github.github-vscode-theme 2>/dev/null || true

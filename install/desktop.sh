@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# Run desktop installers
-for installer in ~/.local/share/omakub/install/desktop/*.sh; do source $installer; done
+SCULLYOS_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
 
-# Logout to pickup changes
-gum confirm "Ready to reboot for all settings to take effect?" && sudo reboot || true
+# Run desktop installers
+for installer in "$SCULLYOS_PATH"/install/desktop/*.sh; do
+  [ -f "$installer" ] && source "$installer"
+done
+
+# Logout / Reboot confirmation
+if command -v gum &>/dev/null; then
+  gum confirm "Ready to reboot for all ScullyOS settings to take effect?" && sudo reboot || true
+fi

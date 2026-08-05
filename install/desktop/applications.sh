@@ -1,3 +1,6 @@
 #!/bin/bash
 
-for script in ~/.local/share/omakub/applications/*.sh; do source $script; done
+SCULLYOS_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
+for script in "$SCULLYOS_PATH"/applications/*.sh; do
+  [ -f "$script" ] && source "$script"
+done

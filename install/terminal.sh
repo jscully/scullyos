@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Needed for all installers
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install -y curl git unzip
+SCULLYOS_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
 
 # Run terminal installers
-for installer in ~/.local/share/omakub/install/terminal/*.sh; do source $installer; done
+for installer in "$SCULLYOS_PATH"/install/terminal/*.sh; do
+  [ -f "$installer" ] && source "$installer"
+done
