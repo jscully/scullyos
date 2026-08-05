@@ -15,6 +15,9 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys next "['<Shift>AudioP
 # Full-screen with title/navigation bar -> Shift+F11
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Shift>F11']"
 
+# Map native terminal launcher shortcut to Super+Return / Super+Enter
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>Return']"
+
 # Use 6 fixed workspaces instead of dynamic mode
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
