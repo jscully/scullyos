@@ -1,6 +1,4 @@
 #!/bin/bash
 
 SCULLYOS_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
-export SCULLYOS_PATH
-
-source $SCULLYOS_PATH/bin/scullyos
+source $SCULLYOS_PATH/bin/scullyos-sub/dashboard.sh

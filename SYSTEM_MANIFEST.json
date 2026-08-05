@@ -1,0 +1,38 @@
+{
+  "system_name": "ScullyOS",
+  "version": "1.0.0",
+  "author": "Joseph Scully (jscully)",
+  "repository": "https://github.com/jscully/omakub.git",
+  "upstream_repository": "https://github.com/basecamp/omakub.git",
+  "install_root": "~/.local/share/scullyos",
+  "cli_command": "scullyos",
+  "dashboard_path": "~/.local/share/scullyos/dashboard/index.html",
+  "desktop_environment": "Ubuntu 24.04+ GNOME",
+  "desktop_applications": {
+    "browser": "Brave Browser (brave-browser)",
+    "editor": "Visual Studio Code (code)",
+    "terminal": "Alacritty (alacritty)",
+    "notes": "Obsidian (obsidian)",
+    "launcher": "Ulauncher (ulauncher)",
+    "remote_gaming": "Steam Link (flatpak run com.valvesoftware.SteamLink)",
+    "screenshot": "Flameshot (flameshot)",
+    "office": "LibreOffice (libreoffice)",
+    "tweaks": "GNOME Tweaks (gnome-tweaks)"
+  },
+  "terminal_tools": {
+    "multiplexer": "Zellij (zellij)",
+    "git_tui": "LazyGit (lazygit)",
+    "docker_tui": "LazyDocker (lazydocker)",
+    "version_manager": "Mise (mise)",
+    "monitor": "Btop (btop)",
+    "sysinfo": "Fastfetch (fastfetch)",
+    "github_cli": "GitHub CLI (gh)",
+    "container_runtime": "Docker Engine & Compose v2"
+  },
+  "gnome_shortcuts": {
+    "Super+Enter": "Alacritty Terminal",
+    "Super+Space": "Ulauncher App Search"
+  },
+  "theme": "Tokyo Night Dark",
+  "font": "JetBrains Mono"
+}

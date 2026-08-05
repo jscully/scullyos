@@ -2,29 +2,24 @@
 
 set -e
 
-ascii_art='________                  __        ___.
-\_____  \   _____ _____  |  | ____ _\_ |__
- /   |   \ /     \\__   \ |  |/ /  |  \ __ \
-/    |    \  Y Y  \/ __ \|    <|  |  / \_\ \
-\_______  /__|_|  (____  /__|_ \____/|___  /
-        \/      \/     \/     \/         \/
-'
+source ./ascii.sh 2>/dev/null || true
 
-echo -e "$ascii_art"
-echo "=> Omakub is for fresh Ubuntu 24.04+ installations only!"
-echo -e "\nBegin installation (or abort with ctrl+c)..."
+echo "=> ScullyOS is engineered for fresh Ubuntu 24.04+ installations!"
+echo -e "\nBegin installation (or abort with Ctrl+C)..."
 
 sudo apt-get update >/dev/null
 sudo apt-get install -y git >/dev/null
 
-echo "Cloning Omakub..."
-rm -rf ~/.local/share/omakub
-git clone https://github.com/basecamp/omakub.git ~/.local/share/omakub >/dev/null
-if [[ $OMAKUB_REF != "master" ]]; then
-	cd ~/.local/share/omakub
-	git fetch origin "${OMAKUB_REF:-stable}" && git checkout "${OMAKUB_REF:-stable}"
+echo "Cloning ScullyOS..."
+INSTALL_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
+rm -rf "$INSTALL_PATH"
+git clone https://github.com/jscully/omakub.git "$INSTALL_PATH" >/dev/null
+
+if [[ -n "$SCULLYOS_REF" ]]; then
+	cd "$INSTALL_PATH"
+	git fetch origin "$SCULLYOS_REF" && git checkout "$SCULLYOS_REF"
 	cd -
 fi
 
-echo "Installation starting..."
-source ~/.local/share/omakub/install.sh
+echo "ScullyOS installation starting..."
+source "$INSTALL_PATH/install.sh"

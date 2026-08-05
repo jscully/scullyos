@@ -3,4 +3,5 @@
 SCULLYOS_PATH="${SCULLYOS_PATH:-$HOME/.local/share/scullyos}"
 export SCULLYOS_PATH
 
-source $SCULLYOS_PATH/bin/scullyos
+source $SCULLYOS_PATH/bin/scullyos-sub/header.sh
+source $SCULLYOS_PATH/bin/scullyos-sub/menu.sh

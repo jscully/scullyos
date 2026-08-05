@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScullyOS — Command Center & System Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --primary: #8b5cf6;
+      --primary-gradient: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-amber: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-gradient);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 22px;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .search-box {
+      position: relative;
+      width: 380px;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: #1e293b;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 10px 16px 10px 42px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: #c084fc;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .ai-manifest-box {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 14px;
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .ai-manifest-title {
+      color: var(--accent-cyan);
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: var(--primary-gradient);
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.25 ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .card-category {
+      font-size: 12px;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .code-block {
+      background: #090d16;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #a7f3d0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hotkey-tag {
+      background: #334155;
+      color: #f1f5f9;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-logo">⚡</div>
+      <div>
+        <div class="brand-title">ScullyOS</div>
+        <div class="brand-subtitle">Custom Workstation Command Center</div>
+      </div>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search apps, hotkeys, CLI tools, docker...">
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <div class="hero-card">
+      <div class="hero-text">
+        <span class="stat-badge">⚡ Trimmed & Custom Engineered</span>
+        <h1>Welcome to ScullyOS</h1>
+        <p>Your personalized, high-performance Linux environment for modern web development, containerization, and terminal productivity.</p>
+        <div>
+          <span class="hotkey-tag">Super + Enter ➔ Alacritty</span> &nbsp;
+          <span class="hotkey-tag">Super + Space ➔ Ulauncher</span> &nbsp;
+          <span class="hotkey-tag">Terminal ➔ scullyos</span>
+        </div>
+      </div>
+      <div class="ai-manifest-box">
+        <div class="ai-manifest-title">🤖 AI Agent Blueprint (LLM Context)</div>
+        <div style="color: #cbd5e1; line-height: 1.5;">
+          <strong>OS Target:</strong> Ubuntu 24.04+ GNOME<br>
+          <strong>Config Root:</strong> <code>~/.local/share/scullyos</code><br>
+          <strong>Dev Stack:</strong> Docker, Mise (Node/Python/Go/Rust), LazyGit, LazyDocker, Zellij, VS Code, Brave<br>
+          <strong>CLI Launcher:</strong> <code>scullyos</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="filterTab('all', this)">All Tools</button>
+      <button class="tab-btn" onclick="filterTab('desktop', this)">Desktop Apps</button>
+      <button class="tab-btn" onclick="filterTab('terminal', this)">Terminal & TUIs</button>
+      <button class="tab-btn" onclick="filterTab('hotkeys', this)">GNOME Hotkeys</button>
+      <button class="tab-btn" onclick="filterTab('dev', this)">Runtimes & Docker</button>
+    </div>
+
+    <div class="grid" id="toolsGrid">
+
+      <!-- DESKTOP APPS -->
+      <div class="card" data-category="desktop" data-keywords="brave browser web internet chromebookmark">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🦁</div>
+            <div>
+              <div class="card-category">Browser</div>
+              <div class="card-title">Brave Browser</div>
+            </div>
+          </div>
+          <div class="card-desc">Privacy-focused, fast Chromium web browser with built-in ad and tracker blocking.</div>
+        </div>
+        <div class="code-block">
+          <code>brave-browser</code>
+          <button class="copy-btn" onclick="copyText('brave-browser')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="desktop" data-keywords="vs code visual studio editor IDE code python javascript html">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🟦</div>
+            <div>
+              <div class="card-category">Code Editor</div>
+              <div class="card-title">Visual Studio Code</div>
+            </div>
+          </div>
+          <div class="card-desc">Extensible code editor pre-loaded with developer plugins and themes.</div>
+        </div>
+        <div class="code-block">
+          <code>code .</code>
+          <button class="copy-btn" onclick="copyText('code .')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="desktop" data-keywords="alacritty terminal GPU prompt shell bash zsh">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">⚡</div>
+            <div>
+              <div class="card-category">Terminal</div>
+              <div class="card-title">Alacritty Terminal</div>
+            </div>
+          </div>
+          <div class="card-desc">Ultra-fast GPU-accelerated terminal emulator tuned with Tokyo Night colors.</div>
+        </div>
+        <div class="code-block">
+          <code>Super + Enter</code>
+          <span class="hotkey-tag">Hotkey</span>
+        </div>
+      </div>
+
+      <div class="card" data-category="desktop" data-keywords="obsidian notes markdown wiki knowledge base pkm">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">💎</div>
+            <div>
+              <div class="card-category">Knowledge Base</div>
+              <div class="card-title">Obsidian</div>
+            </div>
+          </div>
+          <div class="card-desc">Local Markdown knowledge graph and personal documentation store.</div>
+        </div>
+        <div class="code-block">
+          <code>obsidian</code>
+          <button class="copy-btn" onclick="copyText('obsidian')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="desktop" data-keywords="ulauncher launcher search spotlight runner app">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🚀</div>
+            <div>
+              <div class="card-category">Application Launcher</div>
+              <div class="card-title">Ulauncher</div>
+            </div>
+          </div>
+          <div class="card-desc">Lightning-fast application and quick-calculator launcher popup.</div>
+        </div>
+        <div class="code-block">
+          <code>Super + Space</code>
+          <span class="hotkey-tag">Hotkey</span>
+        </div>
+      </div>
+
+      <div class="card" data-category="desktop" data-keywords="steam link gaming remote streaming valvelink">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🎮</div>
+            <div>
+              <div class="card-category">Gaming & Remote</div>
+              <div class="card-title">Steam Link</div>
+            </div>
+          </div>
+          <div class="card-desc">Stream games and desktop sessions directly from your gaming host PC.</div>
+        </div>
+        <div class="code-block">
+          <code>flatpak run com.valvesoftware.SteamLink</code>
+          <button class="copy-btn" onclick="copyText('flatpak run com.valvesoftware.SteamLink')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="desktop" data-keywords="flameshot screenshot capture drawing annotate">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">📸</div>
+            <div>
+              <div class="card-category">Screenshot Utility</div>
+              <div class="card-title">Flameshot</div>
+            </div>
+          </div>
+          <div class="card-desc">Interactive screenshot capture tool with instant arrows, text, and blur drawing.</div>
+        </div>
+        <div class="code-block">
+          <code>flameshot gui</code>
+          <button class="copy-btn" onclick="copyText('flameshot gui')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="desktop" data-keywords="libreoffice office word excel calc writer presentation">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">📄</div>
+            <div>
+              <div class="card-category">Office Suite</div>
+              <div class="card-title">LibreOffice</div>
+            </div>
+          </div>
+          <div class="card-desc">Open-source document, spreadsheet, and presentation suite.</div>
+        </div>
+        <div class="code-block">
+          <code>libreoffice</code>
+          <button class="copy-btn" onclick="copyText('libreoffice')">Copy</button>
+        </div>
+      </div>
+
+      <!-- TERMINAL & TUIs -->
+      <div class="card" data-category="terminal" data-keywords="lazygit git repository commits diff branching TUI">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🌿</div>
+            <div>
+              <div class="card-category">Git TUI</div>
+              <div class="card-title">LazyGit</div>
+            </div>
+          </div>
+          <div class="card-desc">Visual terminal interface for stage/unstage, interactive rebasing, and git logs.</div>
+        </div>
+        <div class="code-block">
+          <code>lazygit</code>
+          <button class="copy-btn" onclick="copyText('lazygit')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="terminal" data-keywords="lazydocker docker containers images logs stats TUI">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">📊</div>
+            <div>
+              <div class="card-category">Docker TUI</div>
+              <div class="card-title">LazyDocker</div>
+            </div>
+          </div>
+          <div class="card-desc">Terminal UI for live container health, restart actions, and resource monitoring.</div>
+        </div>
+        <div class="code-block">
+          <code>lazydocker</code>
+          <button class="copy-btn" onclick="copyText('lazydocker')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="terminal" data-keywords="zellij tmux multiplexer tabs split panes workspace session">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🪟</div>
+            <div>
+              <div class="card-category">Terminal Multiplexer</div>
+              <div class="card-title">Zellij</div>
+            </div>
+          </div>
+          <div class="card-desc">Modern terminal workspace multiplexer with split panes, layouts, and web tabs.</div>
+        </div>
+        <div class="code-block">
+          <code>zellij</code>
+          <button class="copy-btn" onclick="copyText('zellij')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="terminal" data-keywords="btop htop monitor cpu memory disk process top">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">📈</div>
+            <div>
+              <div class="card-category">Resource Monitor</div>
+              <div class="card-title">Btop</div>
+            </div>
+          </div>
+          <div class="card-desc">Beautiful interactive terminal monitor showing real-time CPU, RAM, disk & process graph.</div>
+        </div>
+        <div class="code-block">
+          <code>btop</code>
+          <button class="copy-btn" onclick="copyText('btop')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="terminal" data-keywords="fastfetch neofetch system specs hardware info">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🚀</div>
+            <div>
+              <div class="card-category">System Specs</div>
+              <div class="card-title">Fastfetch</div>
+            </div>
+          </div>
+          <div class="card-desc">Lightning-fast system specs overview with distro logo and hardware details.</div>
+        </div>
+        <div class="code-block">
+          <code>fastfetch</code>
+          <button class="copy-btn" onclick="copyText('fastfetch')">Copy</button>
+        </div>
+      </div>
+
+      <!-- RUNTIMES & DOCKER -->
+      <div class="card" data-category="dev" data-keywords="mise version manager node python go rust ruby nvm">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">⚡</div>
+            <div>
+              <div class="card-category">Dev Version Manager</div>
+              <div class="card-title">Mise</div>
+            </div>
+          </div>
+          <div class="card-desc">Blazing-fast polyglot runtime manager for Node.js, Python, Go, Rust, and Ruby.</div>
+        </div>
+        <div class="code-block">
+          <code>mise use --global node@lts</code>
+          <button class="copy-btn" onclick="copyText('mise use --global node@lts')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="dev" data-keywords="docker engine compose containers daemon virtual">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🐳</div>
+            <div>
+              <div class="card-category">Container Platform</div>
+              <div class="card-title">Docker Engine & Compose</div>
+            </div>
+          </div>
+          <div class="card-desc">Industry-standard container engine with Compose v2 included.</div>
+        </div>
+        <div class="code-block">
+          <code>docker ps</code>
+          <button class="copy-btn" onclick="copyText('docker ps')">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="dev" data-keywords="postgres postgresql database container docker">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🐘</div>
+            <div>
+              <div class="card-category">Database Container</div>
+              <div class="card-title">PostgreSQL 16 (Docker)</div>
+            </div>
+          </div>
+          <div class="card-desc">Quick-launch containerized PostgreSQL database bound to port 5432.</div>
+        </div>
+        <div class="code-block">
+          <code>docker run -d --name postgres16 -p 5432:5432 postgres:16</code>
+          <button class="copy-btn" onclick="copyText('docker run -d --name postgres16 -p 5432:5432 postgres:16')">Copy</button>
+        </div>
+      </div>
+
+      <!-- HOTKEYS -->
+      <div class="card" data-category="hotkeys" data-keywords="hotkey shortcut super enter terminal alacritty">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">⌨️</div>
+            <div>
+              <div class="card-category">GNOME Shortcut</div>
+              <div class="card-title">Launch Terminal</div>
+            </div>
+          </div>
+          <div class="card-desc">Instantly spawn a new Alacritty terminal window anywhere.</div>
+        </div>
+        <div class="code-block">
+          <code>Super + Enter</code>
+          <span class="hotkey-tag">Hotkey</span>
+        </div>
+      </div>
+
+      <div class="card" data-category="hotkeys" data-keywords="hotkey shortcut super space ulauncher launcher search">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🔍</div>
+            <div>
+              <div class="card-category">GNOME Shortcut</div>
+              <div class="card-title">App Launcher / Search</div>
+            </div>
+          </div>
+          <div class="card-desc">Pop up Ulauncher search bar to launch apps or calculate formulas.</div>
+        </div>
+        <div class="code-block">
+          <code>Super + Space</code>
+          <span class="hotkey-tag">Hotkey</span>
+        </div>
+      </div>
+
+      <div class="card" data-category="hotkeys" data-keywords="hotkey shortcut tiling snap windows split navigation arrow">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">📐</div>
+            <div>
+              <div class="card-category">Tiling Shortcut</div>
+              <div class="card-title">Window Snapping</div>
+            </div>
+          </div>
+          <div class="card-desc">Snap windows to left/right/top/bottom screen quadrants effortlessly.</div>
+        </div>
+        <div class="code-block">
+          <code>Super + Arrow Keys</code>
+          <span class="hotkey-tag">Hotkey</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      ScullyOS — Custom Designed & Trimmed Workstation Setup &bull; Built with Google Antigravity AI
+    </footer>
+  </div>
+
+  <script>
+    function filterTab(category, btnElement) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      
+      cards.forEach(card => {
+        const text = (card.innerText + ' ' + (card.dataset.keywords || '')).toLowerCase();
+        if (text.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      const activeEl = document.activeElement;
+      if (activeEl) {
+        const originalText = activeEl.innerText;
+        activeEl.innerText = 'Copied!';
+        setTimeout(() => { activeEl.innerText = originalText; }, 1500);
+      }
+    }
+  </script>
+</body>
+</html>
